@@ -25,6 +25,10 @@ function playRiff(start) {
   synth.triggerAttackRelease("F4", "8n", start + 0.5);
   synth.triggerAttackRelease("D4", "8n", start + 1);
   synth.triggerAttackRelease("C5", "8n", start + 1.5);
+  synth.triggerAttackRelease("D4", "8n", start);
+  synth.triggerAttackRelease("F4", "8n", start + 0.5);
+  synth.triggerAttackRelease("D4", "8n", start + 1);
+  synth.triggerAttackRelease("F5", "8n", start + 1.5);
   // TODO 3: add a fourth note at start + 1.5
 }
 
