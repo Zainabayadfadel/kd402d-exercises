@@ -12,13 +12,15 @@ function handleKeyDown(event) {
   Tone.start(); // sound can only start after a key press or a click
   console.log(event.key);
 
-  if (event.key === "a") {
-    synth.triggerAttackRelease("C4", "8n");
-  } else if (event.key === "s") {
-    synth.triggerAttackRelease("D4", "8n");
-  } else if (event.key === "d") {
-    synth.triggerAttackRelease("E4", "8n");
-  }
+
+if (event.key.length === 1 &&
+    event.key >= "a" &&
+    event.key <= "g") {
+
+  const note = event.key.toUpperCase() + octave;
+
+  synth.triggerAttackRelease(note, "8n");
+}
 }
 
 document.addEventListener("keydown", handleKeyDown);
@@ -26,8 +28,11 @@ document.addEventListener("keydown", handleKeyDown);
 // ---------- Exercise 5: keys are note names ----------
 // The letter IS the note: press c, hear C.
 // 5a Predict first, in a comment: what do these give? Strings compare in alphabetical order.
-//      "c" >= "a"      "h" <= "g"      "Enter" >= "a"
+//      "c" >= "a" true     "h" <= "g" false     "Enter" >= "a" false
 //    Log them to check:  console.log("c" >= "a");
+console.log("c" >= "a");
+console.log("h" <= "g");
+console.log("Enter" >= "a");
 // TODO 5b: replace the whole if / else if chain in handleKeyDown with:
 //            if (event.key.length === 1 && event.key >= "a" && event.key <= "g") {
 //              const note = event.key.toUpperCase() + octave;
